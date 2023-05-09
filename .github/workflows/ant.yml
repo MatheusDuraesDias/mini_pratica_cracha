@@ -18,11 +18,14 @@ jobs:
         with:
           java-version: '11'
 
-      - name: Build do projeto
-        run: mvn clean package
+      - name: Compliando no Java
+        run: |
+          cd src
+          javac -cp . classTest.java Main.java
 
-      - name: Executar testes
-        run: mvn test
+      - name: Rodando o progrma
+        run: |
+          cd src
+          java -cp . classTest
+          
 
-      - name: Executar teste específico
-        run: java -cp target/classes com.example.ClassTeste
